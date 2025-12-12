@@ -18,10 +18,10 @@ app.use(cookieParser())
 
 app.use("/api/auth",userRoutes)
 app.use("/api/chat",chatRoutes)
-app.use(express.static(path.join(__dirname,"./public")))
+app.use(express.static(path.join(__dirname,"../public")))
 
-app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./public/index.html"))
+app.get("*name", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/index.html"))
 });
 
 
