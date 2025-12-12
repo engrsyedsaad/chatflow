@@ -76,7 +76,7 @@ export default function Chat() {
   const fetchChats = async () => {
     try {
       setIsLoading(true)
-      const response = await axios.get('http://localhost:3000/api/chat/chats', {
+      const response = await axios.get('https://chatflow-gu91.onrender.com/api/chat/chats', {
         withCredentials: true,
       })
       if (response.data.chats && response.data.chats.length > 0) {
@@ -95,7 +95,7 @@ export default function Chat() {
   // Fetch messages for a specific chat
   const loadChatMessages = async (chat) => {
     try {
-      const response = await axios.get(`http://localhost:3000/api/chat/chats/${chat._id}/messages`, {
+      const response = await axios.get(`https://chatflow-gu91.onrender.com/api/chat/chats/${chat._id}/messages`, {
         withCredentials: true,
       })
       setMessages(response.data.messages || [])
@@ -118,7 +118,7 @@ export default function Chat() {
   const handleDeleteChat = async (chatId) => {
     if (window.confirm('Are you sure you want to delete this chat?')) {
       try {
-        await axios.delete(`http://localhost:3000/api/chat/chats/${chatId}`, {
+        await axios.delete(`https://chatflow-gu91.onrender.com/api/chat/chats/${chatId}`, {
           withCredentials: true,
         })
         
@@ -148,7 +148,7 @@ export default function Chat() {
 
     try {
       const response = await axios.post(
-        'http://localhost:3000/api/chat/chats',
+        'https://chatflow-gu91.onrender.com/api/chat/chats',
         { chat: newChatName },
         { withCredentials: true }
       )
@@ -188,7 +188,7 @@ export default function Chat() {
 
       // Send message to backend
       const response = await axios.post(
-        `http://localhost:3000/api/chat/chats/${selectedChat._id}/messages`,
+        `https://chatflow-gu91.onrender.com/api/chat/chats/${selectedChat._id}/messages`,
         { content: messageInput, role: 'user' },
         { withCredentials: true }
       )

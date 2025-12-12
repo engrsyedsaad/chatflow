@@ -80,7 +80,7 @@ export default function Register() {
     e.preventDefault()
     const newErrors = validateForm()
     // console.log(formData);
-    axios.post("http://localhost:3000/api/auth/register",{
+    axios.post("https://chatflow-gu91.onrender.com/api/auth/register",{
         fullName:{
             firstName: formData.firstName,
             lastName: formData.lastName,
